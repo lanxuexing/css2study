@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo01</title>
+    <style>
+        div {
+            margin: 20px;
+        }
+        /* from -- to 关键帧动画 */
+        #box1 {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: #F00;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            /* animation: mFoo 4s; */
+            animation-name: mFoo1;
+            animation-duration: 4s;
+            animation-delay: .8s;
+            /* 动画填充模式: forwardsbackwards、both */
+            animation-fill-mode: forwards;
+        }
+        @keyframes mFoo1 {
+            from {
+                left: 0;
+                background-color: red;
+            }
+            to {
+                background-color: yellow;
+                left: 300px;
+            }
+        }
+
+        /* 自定义百分比关键帧动画 */
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: #F00;
+            animation: mFoo2 4s ease-in-out .8s;
+            /* animation-name: mFoo2;
+            animation-duration: 4s; */
+        }
+        @keyframes mFoo2 {
+            25% {
+                background-color: yellow;
+            }
+            50% {
+                background-color: #00F;
+            }
+        }
+
+        /* 自定义百分比关键帧动画 -- 正方形绕圈 */
+        #box3 {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: purple;
+            /* animation: mFoo3 4s ease-in-out 0s 3 normal; */
+            animation-name: mFoo3;
+            animation-duration: 4s;
+            /* 指定动画的运行曲线函数: ease、linear、ease-in、ease-out、ease-in-out、cubic-bezier(n,n,n,n) */
+            animation-timing-function: ease-in-out;
+            /* 延迟2s执行关键帧动画 */
+            /* animation-delay: 2s; */
+            /* 抢先2s执行关键帧动画 */
+            /* animation-delay: -2s; */
+            /* 动画运行次数 */
+            animation-iteration-count: 1;
+            /* 动画运动曲线的方向 */
+            animation-direction: reverse;
+            /* 动画填充模式: forwardsbackwards、both */
+            animation-fill-mode: backwards;
+        }
+        @keyframes mFoo3 {
+            0% {
+                background-color: purple;
+                top: 0;
+                left: 0;
+            }
+            25% {
+                background-color: #F00;
+                top: 0;
+                left: 300px;
+            }
+            50% {
+                background-color: #0F0;
+                top: 300px;
+                left: 300px;
+            }
+            75% {
+                background-color: #00F;
+                top: 300px;
+                left: 0;
+            }
+            100% {
+                background-color: purple;
+                top: 0px;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+</body>
+</html>
