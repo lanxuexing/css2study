@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Timing-Function</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #hourse {
+            width: 186px;
+            height: 141px; 
+            position: absolute;
+            background-image:url("https://www.oxxostudio.tw/demo/201803/hourse.jpg");
+            animation-name: oxxo;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: step-start;
+        }
+        /* 跑马动画图, 用sprite精灵图制作, 原文地址: https://www.oxxostudio.tw/demo/201803/css-animation-demo-05.html
+         * 动画加速度函数: animation-timing-function
+         * linear: 线性，没有任何加速减速，在Cubic Bezier 的图形表现为斜率1的直线。https://www.oxxostudio.tw/img/articles/201803/css-animation-03.jpg
+         * ease、ease-in、ease-out、ease-in-out: https://www.oxxostudio.tw/img/articles/201803/css-animation-04.jpg
+         * step-start: 看不到第一格 关键帧一格子一格子的进行，不会有中间的演算动画
+         * step-end: 看不到最后一格 https://www.oxxostudio.tw/img/articles/201803/css-animation-05.jpg
+         * steps(int,start|end): step-start等同于steps(1,start)，而step-end等同于steps(1,end)，因为都只走了「一步」，如果我们把int步数增加，就会看到每个关键影格之间多了一些演算出来的影格，当然如果步数设定越多，看到的动画也会越流畅(但如果要这么做，只要不用step就好了)
+         * cubic-bezier(n,n,n,n): 表示动画开始与结束速度的贝兹曲线, 具体可以参考：https://www.oxxostudio.tw/articles/201406/css-cubic-bezier.html
+         */
+        @keyframes oxxo {
+            0% {
+                background-position:-15px -13px;
+                }
+            6.25% {
+                background-position:-210px -13px;
+            }
+            12.5% {
+                background-position:-403px -13px;
+            }
+            18.75% {
+                background-position:-592px -13px;
+            }
+            25% {
+                background-position:-15px -165px;
+            }
+            31.25% {
+                background-position:-210px -165px;
+            }
+            37.5% {
+                background-position:-403px -165px;
+            }
+            43.75% {
+                background-position:-592px -165px;
+            }
+            50% {
+                background-position:-15px -320px;
+            }
+            56.25% {
+                background-position:-210px -320px;
+            }
+            62.5% {
+                background-position:-403px -320px;
+            }
+            68.75% {
+                background-position:-592px -320px;
+            }
+            75% {
+                background-position:-15px -470px;
+            }
+            81.25% {
+                background-position:-210px -470px;
+            }
+            87.5% {
+                background-position:-403px -470px;
+            }
+            93.75% {
+                background-position:-592px -470px;
+            }
+            100% {
+                background-position:-592px -470px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="hourse"></div>
+</body>
+</html>

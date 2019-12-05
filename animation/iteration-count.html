@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Iteration-Count</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .test {
+            width: 50px;
+            height: 50px;
+            animation-name: xoxo;
+            animation-duration: 4s;
+            background-color: #F00;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        /*
+         * 动画播放的次数: animation-iteration-count
+         * 预设值为1 次，如果设定为infinite 动画就会无止尽的播放下去
+         */
+        @keyframes xoxo {
+            from {
+                margin-left: 0;
+            }
+            to {
+                margin-left: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+</body>
+</html>

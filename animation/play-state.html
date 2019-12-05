@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Play-State</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #hourse {
+            width: 186px;
+            height: 141px; 
+            position: absolute;
+            background-image:url("https://www.oxxostudio.tw/demo/201803/hourse.jpg");
+            animation-name: oxxo;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: step-start;
+            animation-play-state: paused;
+        }
+        #hourse:hover {
+            animation-play-state: running;
+        }
+        /* 
+         * 动画播放或暂停状态: animation-play-state
+         * running：预设值，表示动画运行
+         * paused：表示动画暂停
+         * 透过动画播放或暂停的属性，搭配滑鼠hover 的效果，就能很轻松地实现「滑鼠移到区块上才出现动画」的效果
+         */
+        @keyframes oxxo {
+            0% {
+                background-position:-15px -13px;
+                }
+            6.25% {
+                background-position:-210px -13px;
+            }
+            12.5% {
+                background-position:-403px -13px;
+            }
+            18.75% {
+                background-position:-592px -13px;
+            }
+            25% {
+                background-position:-15px -165px;
+            }
+            31.25% {
+                background-position:-210px -165px;
+            }
+            37.5% {
+                background-position:-403px -165px;
+            }
+            43.75% {
+                background-position:-592px -165px;
+            }
+            50% {
+                background-position:-15px -320px;
+            }
+            56.25% {
+                background-position:-210px -320px;
+            }
+            62.5% {
+                background-position:-403px -320px;
+            }
+            68.75% {
+                background-position:-592px -320px;
+            }
+            75% {
+                background-position:-15px -470px;
+            }
+            81.25% {
+                background-position:-210px -470px;
+            }
+            87.5% {
+                background-position:-403px -470px;
+            }
+            93.75% {
+                background-position:-592px -470px;
+            }
+            100% {
+                background-position:-592px -470px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="hourse"></div>
+</body>
+</html>

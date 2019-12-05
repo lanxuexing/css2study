@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Name</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .test {
+            width: 50px;
+            height: 50px;
+            animation-name: xoxo;
+            animation-duration: 4s;
+            background-color: rgb(255, 0, 140);
+        }
+        /*
+         * 动画名称: animation-name
+         * animation-name 表示动画名称，既然要做动画就得先对这个动画命名
+         * 由于CSS 骨子里也是程式语言，仍保有着程式码的逻辑思维
+         * 所以命名上须遵照以下几点原则，使用上也比较不会发生问题
+         * 几个命名原则如下
+         * 1. 名称可以加引号、亦可不加引号
+         * 2. 如果同名，以后面的名称为主
+         * 3. 名称大小写有区别
+         * 4. 特殊字元不能使用，但是用引号框起来就可以(CSS 动画有两个保留字：initial 和None)
+         */
+        @keyframes xoxo {
+            from {
+                margin-left: 0;
+            }
+            to {
+                margin-left: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File-Mode</title>
+    <style>
+        html,body {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        .test {
+          width: 50px;
+          height: 50px; 
+          position: absolute;
+          animation-name: oxxo;
+          animation-duration: 2s;
+        }
+        #red {
+          background: #f00;
+          animation-fill-mode: forwards;
+        }
+        #blue {
+          top: 60px;
+          background: #06f;
+          animation-iteration-count: 2;
+          animation-fill-mode: both;
+          animation-direction: alternate;
+        }
+        /*
+         * 动画播放前后模式: animation-fill-mode
+         * none：预设值，不论动画播放次数，结束后一律返回原始状态
+         * forwards：动画结束后，保持在最后一个影格状态
+         * backwards：动画结束后，保持在第一个影格状态(但实际测试和none效果一样)
+         * both：依据动画的次数或播放方向，保持在第一个影格或最后一个影格状态，相当实用
+         */
+        @keyframes oxxo {
+            0% {
+                left:0;
+            }
+            100% {
+                left:200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test" id="red"></div>
+    <div class="test" id="blue"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Direction</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #test {
+            width: 50px;
+            height: 50px; 
+            position: absolute;
+            animation-name: oxxo;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        /*
+         * 动画播放方向: animation-direction
+         * normal：正常播放，从0%到100% (预设值)
+         * 反转播放，从100%到0%
+         * alternate：正反转轮流播放，奇数次为0%到100%，偶数次为100%到0%，若动画播放次数只有一次就只会正常播放
+         * alternate-reverse：alternate的相反，奇数次为100%到0%，偶数次为0%到100%，若动画播放次数只有一次就只会反转播放
+         */
+        @keyframes oxxo{
+            0% {
+                left:0;
+                background:#f00;
+                color:#000;
+            }
+            25% {
+                left:50px;
+                background:#0f0;
+                color:#000;
+            }
+            50% {
+                left:100px;
+                background:#00f;
+                color:#fff;
+            }
+            75% {
+                left:150px;
+                background:#ff0;
+                color:#000;
+            }
+            100% {
+                left:200px;
+                background:#000;
+                color:#fff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+</body>
+</html>

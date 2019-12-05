@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Duration</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .test {
+            width: 50px;
+            height: 50px;
+            animation-name: xoxo;
+            animation-duration: 4s;
+            background-color: #FF0;
+        }
+        /*
+         * 动画持续时间: animation-duration
+         * 指的是「播放一次」动画需要的时间，单位为秒( s )或毫秒( ms )
+         * 预设值0s，如果没有设定或将其设为0s，就不会播放动画
+         * 基本上和animation-name动画名称都是属于一定要有的属性
+         */
+        @keyframes xoxo {
+            from {
+                margin-left: 0;
+            }
+            to {
+                margin-left: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+</body>
+</html>

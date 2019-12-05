@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delay</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .test {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            animation-name: xoxo;
+            animation-duration: 5s;
+        }
+        #red {
+            background-color: #F00;
+            top: 0;
+            animation-delay: -2s;
+        }
+        #green {
+            background-color: #0F0;
+            top: 50px;
+            animation-delay: 0;
+        }
+        #blue {
+            background-color: #00F;
+            top: 100px;
+            animation-delay: 2s;
+        }
+        /*
+         * 动画延迟播放时间: animation-delay
+         * 动画要延后多久才开始播放，单位为秒( s )或毫秒( ms )，
+         * 预设值0s，如果没有设定或将其设为0s，动画就会直接播放不会延迟，
+         * 但比较特别的是，如果将延迟播放时间设定为「负值」，例如-1s、-2s，
+         * 得到的结果就「不会延迟，而是快转」，假设一段动画要5秒，
+         * animation- delay设定为-2s，那么动画将会直接从第二秒的位置开始播放，
+         * 播放三秒后停止(类似5-2=3的概念)
+         */
+        @keyframes xoxo {
+            from {
+                margin-left: 0;
+            }
+            to {
+                margin-left: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test" id="blue"></div>
+    <div class="test" id="red"></div>
+    <div class="test" id="green"></div>
+</body>
+</html>

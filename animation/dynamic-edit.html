@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dynamic-Edit</title>
+    <style>
+        #test {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50px;
+            background-color: #F00;
+            animation-name: oxxo;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes oxxo {
+            0% {
+                left: 0;
+                background-color: #F00;
+            }
+            50% {
+                left: 100px;
+                background-color: #0F0;
+            }
+            100% {
+                left: 200px;
+                background-color: #00F;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <button id="btn">更改动画内容</button>
+</body>
+<script>
+    /**
+     * CSSKeyframesRule: 在网页的document里有个属性叫做styleSheets，这个属性会将一个网页里所有用到的样式列出
+     * StyleSheetList
+     *      ----CSSStyleSheet
+     *          ----CSSStyleRule
+     *          ----CSSKeyframesRule (修改动画的关键)
+     * 
+     * 修改动画内容，就需要用到下列几种方法:
+     * 1. findRule()：找出对应规则
+     * 2. appendRule()：添加规则
+     * 3. deleteRule()：删除规则
+     */
+    var btn = document.getElementById('btn');
+    var keyframes = document.styleSheets[0].cssRules[1];
+    console.log(keyframes);
+    btn.addEventListener('click', function() {
+        console.log(keyframes.findRule('50%'));
+        keyframes.deleteRule('50%');
+        console.log(keyframes);
+        keyframes.appendRule('50% {left:100px; background:#000;}');
+        console.log(keyframes);
+    });
+</script>
+</html>

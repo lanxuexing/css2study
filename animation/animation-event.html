@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation-Event</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #text {
+            font-size:30px;
+        }
+        #hourse {
+            width: 186px;
+            height: 141px; 
+            background-image:url("https://www.oxxostudio.tw/demo/201803/hourse.jpg");
+            animation-name: oxxo;
+            background-position: -15px -13px;
+            animation-duration: 1s;
+            animation-iteration-count: 3;
+            animation-timing-function: step-start;
+            animation-play-state: running;
+        }
+        #hourse:hover {
+            animation-play-state: paused;
+        }
+        /* CSS Animation Events:
+         * 1. animationstart：当动画开始
+         * 2. animationend：当动画结束
+         * 3. animationiteration：当动画重复
+         * 4. animationcancel：当动画中止(目前还不支持)
+         */
+        @keyframes oxxo {
+            0% {
+                background-position:-15px -13px;
+                }
+            6.25% {
+                background-position:-210px -13px;
+            }
+            12.5% {
+                background-position:-403px -13px;
+            }
+            18.75% {
+                background-position:-592px -13px;
+            }
+            25% {
+                background-position:-15px -165px;
+            }
+            31.25% {
+                background-position:-210px -165px;
+            }
+            37.5% {
+                background-position:-403px -165px;
+            }
+            43.75% {
+                background-position:-592px -165px;
+            }
+            50% {
+                background-position:-15px -320px;
+            }
+            56.25% {
+                background-position:-210px -320px;
+            }
+            62.5% {
+                background-position:-403px -320px;
+            }
+            68.75% {
+                background-position:-592px -320px;
+            }
+            75% {
+                background-position:-15px -470px;
+            }
+            81.25% {
+                background-position:-210px -470px;
+            }
+            87.5% {
+                background-position:-403px -470px;
+            }
+            93.75% {
+                background-position:-592px -470px;
+            }
+            100% {
+                background-position:-592px -470px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="hourse"></div>
+    <span id="text"></span>
+</body>
+<script>
+    var hourse = document.getElementById('hourse');
+    var text = document.getElementById('text');
+    hourse.addEventListener('animationstart',function(){
+        text.innerHTML = '动画开始';
+    });
+    hourse.addEventListener('animationend',function(){
+        text.innerHTML = '动画结束';
+    });
+    hourse.addEventListener('animationiteration',function(){
+        text.innerHTML = '动画重复';
+    });
+    hourse.addEventListener('animationcancel',function(){
+        text.innerHTML = '动画暂停';
+    });
+</script>
+</html>
