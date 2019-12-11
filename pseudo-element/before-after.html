@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*
+         * 两者均是：display: inline-block
+         * 1. ::before是在原本的元素「之前」加入内容
+         * 2. ::after则是在原本的元素「之后」加入内容
+         * 3. 伪元素也会「继承」原本元素的属性
+         * 
+         * 4. content属性一定要有，它是伪元素的载体
+         * 5. 它还可以使用attr直接获取元素的attribute属性值
+         * 6. content内容可以通过一个空白键进行「相加」
+         */
+        div::before {
+            content: '我是 Before[';
+            color: red;
+        }
+        div::after {
+            content: '] 我是 After';
+            color: red;
+        }
+        a::before {
+            content: '( ' attr(href) ' ) < ';
+            color: salmon;
+        }
+        a::after {
+            content: ' > (' attr(target) ' )';
+            color: salmon;
+        }
+        span {
+            quotes: ' <  ' ' > ' ' ya ' ' ya ' ' ( ' ' ) ';
+        }
+        span::before {
+            content: open-quote;
+            color: violet;
+        }
+        span::after {
+            content: close-quote;
+            color: springgreen;
+        }
+    </style>
+</head>
+<body>
+    <div>大家好,我是Div</div>
+    <a href="http://www.google.com" target="_blank">Google</a>
+    <br>
+    最外层<span>第一层<span>第二层</span><span>第二层<span>第三层</span></span></span>
+</body>
