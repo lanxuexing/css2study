@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Content</title>
+    <style>
+        /**
+         * CSS里的Counter
+         * counter(计数器名称, list-style-type)
+         * Values for list-style-type: https://css-tricks.com/almanac/properties/l/list-style
+         * 
+         * 1. 父类元素包裹子类元素，类似ul里的li
+         * 2. 对父元素使用 counter-reset: num; 进行计数器归零，name是计数器累加数值的变数
+         * 3. 对子元素使用 counter-increment: num; 累加
+         * 4. 使用伪类元素::before的content属性 content: counter(num) '. ' 显示
+         * 5. counter-reset也可以指定起始数值，例如：counter-reset: num 2
+         */
+         .marvel {
+            counter-reset: num;
+        }
+        .moive {
+            display: block;
+        }
+        .moive::before {
+            counter-increment: num;
+            content: counter(num) '. ';
+            color: salmon;
+        }
+        /**
+         * counter-reset可以指定起始值
+         */
+        .basket {
+            counter-reset: num 2;
+        }
+        .fruits {
+            display: block;
+        }
+        .fruits::before {
+            counter-increment: num 2;
+            content: counter(num, lower-roman) '. ';
+            color: violet;
+        }
+        /**
+         * counter-reset可以指定多个变数，透过一个空白字元分隔，如果空白字元后面接着数字则是起始值，没有数字预设为0
+         */
+        .mix {
+            counter-reset: prov lang 3 com 6;
+        }
+        .province, .language, .computer {
+            display: block;
+            font-style: normal;
+            font-weight: normal;
+        }
+        .province::before {
+            counter-increment: prov;
+            content: counter(prov) '. ';
+            color: teal;
+        }
+        .language::before {
+            counter-increment: lang 3;
+            content: counter(lang) '. ';
+            color: yellowgreen;
+        }
+        .computer::before {
+            counter-increment: com 1;
+            content: counter(com) '. ';
+            color: slateblue;
+        }
+        /**
+         * 树状结构的Counter
+         * counters(计数器名称, 分隔字, list-style-type)
+         * Values for list-style-type: https://css-tricks.com/almanac/properties/l/list-style
+         * 
+         * .b的外层没有东西，所以一开始把body和b都进行了counter-reset，最后通过counters的作用达成树状结构
+         */
+        body, .b{
+            counter-reset: tree;
+        }
+        .a::before{
+            content:counters(tree, '.') ': ';
+            counter-increment: tree; 
+        }
+        .a, .b {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="marvel">
+        <span class="moive">钢铁侠</span>
+        <span class="moive">美国队长</span>
+        <span class="moive">雷神</span>
+        <span class="moive">复仇者联盟</span>
+    </div>
+
+    <hr>
+
+    <div class="basket">
+        <span class="fruits">🍎苹果</span>
+        <span class="fruits">🍌香蕉</span>
+        <span class="fruits">🍐雪梨</span>
+        <span class="fruits">🍒樱桃</span>
+    </div>
+
+    <hr>
+
+    <div class="mix">
+        <span class="province">北京</span>
+        <span class="province">上海</span>
+        <span class="province">深圳</span>
+        <i class="language">Angular</i>
+        <i class="language">React</i>
+        <i class="language">Vue</i>
+        <b class="computer">Mac</b>
+        <b class="computer">Windows</b>
+        <b class="computer">Linux</b>
+    </div>
+
+    <hr>
+
+    <div class="a">黑龙江
+        <div class="b"> 
+            <div class="a">哈尔滨
+                <div class="b">
+                    <div class="a">南岗区</div>
+                    <div class="a">道外区</div>
+                    <div class="a">松北区</div>
+                </div>
+            </div>
+            <div class="a">大庆</div>
+            <div class="a">齐齐哈尔</div>
+        </div>
+    </div>
+    <div class="a">河北
+        <div class="b">
+            <div class="a">石家庄</div>
+            <div class="a">衡水</div>
+        </div>
+    </div>
+</body>
+</html>
