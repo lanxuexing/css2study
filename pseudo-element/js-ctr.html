@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <title>Js Ctr</title>
+    <style>
+        .pse::before {
+            content: '伪类元素Content';
+            color: tomato;
+        }
+        #ele::before {
+            content: '伪类元素的Content';
+            color: violet;
+        }
+        #display::before {
+            content: attr(data-text) ', ';
+            color: brown;
+        }
+        #btn1, #btn2 {
+            height: 30px;
+            border: 1px solid #ff6700;
+            border-radius: 6px;
+            background-color: #ff6700;
+            color: #FFF;
+            margin-bottom: 20px;
+        }
+    </style>
+    <style id="css"></style>
+</head>
+<body>
+    <div class="pse">我是Div</div>
+    <span class="tips"></span>
+    <hr>
+    <div id="ele">我是Div</div>
+    <hr>
+    <button id="btn1">演示ABC</button>
+    <button id="btn2">演示123</button>
+    <div data-text="我是预设的文字" id="display">我是Div</div>
+</body>
+<script>
+    /**
+     *  style标签元素.insertRule(样式规则, 0)
+     *  window.getComputedStyle('元素', '伪元素')
+     *  伪类元素不存在网页中，要读取其属性值只能通过getComputedStyle来获得
+     *  getComputedStyle是个可以获取当前元素「所有最终使用的CSS属性值」，读取后会返回一个只读的[Object CSSStyleDeclaration]
+     */
+    var pseElement = document.querySelector('.pse');
+    var tipsElement = document.querySelector('.tips');
+    var pseStyles = window.getComputedStyle(pseElement, '::before');
+    tipsElement.innerHTML = pseStyles.content + '<br/>' + pseStyles.color;
+
+    /**
+     * 修改伪类元素的属性
+     * 需要通过insertRule方法在指定的style里插入「预设的规则」，让这个规则去影响伪元素的属性表现。
+     * 
+     */ 
+    var ele = document.getElementById('ele');
+    var css = document.getElementById('css');
+    var cssLabel = css.sheet;
+    cssLabel.insertRule("#ele#ele::before{content: '我是修改的Content';}", 0);
+    cssLabel.insertRule("#ele#ele::before{color: red;}", 0);
+
+    /**
+     * ::before和::after的content可以透过attr抓取父元素的举属性，因此透过改变这个属性，就能连带改变content的内容。
+     */ 
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var displayEle = document.getElementById('display');
+    btn1.addEventListener('click', function() {
+        displayEle.setAttribute('data-text', 'ABC');
+    });
+    btn2.addEventListener('click', function() {
+        displayEle.setAttribute('data-text', '123');
+    });
+</script>
+</html>
