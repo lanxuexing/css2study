@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <title>🖐️Radio Demo</title>
+    <style>
+        [type="radio"] {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+          clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+[type="radio"]:focus + label::before {
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.4) !important;
+}
+[type="radio"]:hover + label::before {
+  border-color: #000;
+}
+[type="radio"]:active + label::before {
+  -webkit-transition-duration: 0;
+          transition-duration: 0;
+}
+[type="radio"] + label {
+  position: relative;
+  padding: 6px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+[type="radio"] + label::before {
+  background-color: #fff;
+  border: 1px solid #444;
+  box-sizing: content-box;
+  content: "";
+  color: #444;
+  margin-right: 6px;
+  top: 50%;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+[type="radio"] + label::after {
+  box-sizing: content-box;
+  content: "";
+  background-color: #444;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: 50%;
+          transform-origin: 50%;
+  -webkit-transition: -webkit-transform 200ms ease-out;
+  transition: -webkit-transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
+}
+[type="radio"][disabled] + label::before {
+  -webkit-animation: none;
+          animation: none;
+  box-shadow: none;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+[type="radio"][disabled]:active + label::before, [type="radio"][disabled]:focus + label::before, [type="radio"][disabled]:hover + label::before {
+  border-color: rgba(128, 128, 128, 0.5);
+  -webkit-filter: none;
+          filter: none;
+  -webkit-transition: none;
+  transition: none;
+}
+
+[type="radio"] + label::before, [type="radio"] + label::after {
+  border-radius: 50%;
+}
+[type="radio"]:checked:active + label::before, [type="radio"]:checked:focus + label::before {
+  -webkit-animation: none;
+          animation: none;
+  -webkit-filter: none;
+          filter: none;
+  -webkit-transition: none;
+  transition: none;
+}
+[type="radio"]:checked + label::before {
+  -webkit-animation: none;
+          animation: none;
+  background-color: #fff;
+}
+[type="radio"]:checked + label::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+@-webkit-keyframes borderscale {
+  50% {
+    box-shadow: 0 0 0 2px #900;
+  }
+}
+
+@keyframes borderscale {
+  50% {
+    box-shadow: 0 0 0 2px #900;
+  }
+}
+input:focus {
+  border: 1px solid black;
+}
+
+input:not(:focus):invalid {
+  border: 1px solid red;
+  outline: none;
+}
+
+input:not(:focus):valid {
+  border: 1px solid green;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1em;
+}
+
+ul {
+  list-style: none;
+}
+
+label {
+  cursor: pointer;
+  display: inline-block;
+}
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><input id="radio1" name="radio" type="radio" class="radio" checked="checked"> <label for="radio1">Option 1</label></li>
+            <li><input id="radio2" name="radio" type="radio" class="radio"> <label for="radio2">Option 2</label></li>
+            <li><input id="radio3" name="radio" type="radio" class="radio"> <label for="radio3">Option 3</label></li>
+        </ul>
+    </div>
+</body>
+
+</html>
