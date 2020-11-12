@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background</title>
+    <style>
+        .box {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 0 10px 10px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 120px;
+            color: white;
+            background: salmon url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605206718059&di=1ff11c05cbc28ac7b976651fa4d0bfe9&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F30%2F29%2F01300000201438121627296084016.jpg) no-repeat;
+        }
+        /* 背景尺寸：留白 裁剪 */
+        .box1 {
+            background-size: contain;
+        }
+        .box2 {
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+</body>
+</html>
