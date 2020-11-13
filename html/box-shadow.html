@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box-shadow</title>
+    <style>
+        img {
+            margin: 20px;
+        }
+        /* 水平偏移量（可负值）  垂直偏移量（可负值）  模糊半径  扩展半径（可负值） 颜色 内外阴影 */
+        .box1 {
+            box-shadow: 10px 10px rgba(0, 0, 0, 1);
+        }
+        .box2 {
+            box-shadow: -10px 10px rgba(0, 0, 0, 1);
+        }
+        .box3 {
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 1);
+        }
+        .box4 {
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 1);
+        }
+    </style>
+</head>
+<body>
+    <img class="box1" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box2" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box3" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box4" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+</body>
+</html>
