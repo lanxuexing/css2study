@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+    <style>
+        /* 
+            Filter滤镜:
+            ➢ CSS属性将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像，背景和边框的渲染。
+            ➢ blur(px): 给图像设置高斯模糊
+            ➢ brightness(%): 给图片应用-种线性乘法，使其看起来更亮或更暗
+            ➢ contrast(%): 调整图像的对比度.
+            ➢ drop-shadow (h-shadow v-shadow blur spread color): 给图像 设置一- 个阴影效果
+            ➢ grayscale(%): 将图像转换为灰度图像
+            ➢ hue-rotate(deg): 给图像应用色相旋转
+            ➢ invert(%): 反转输入图像
+            ➢ opacity(%): 转化图像的透明程度
+            ➢ saturate(%): 转换图像饱和度。值定义转换的比例
+            ➢ saturate(%): 褐色
+         */
+         /* 顺时针，左上角 */
+        img {
+            margin: 20px;
+        }
+        .box1 {
+            /* 灰度 */
+            filter: grayscale(1);
+        }
+        .box2 {
+            /* 怀旧风格 */
+            filter: sepia(1);
+        }
+        .box3 {
+            filter: saturate(2.4);
+        }
+        .box4 {
+            filter: hue-rotate(180deg);
+        }
+        .box5 {
+            filter: blur(2px);
+        }
+        .box6 {
+            filter: drop-shadow(10px 10px 10px #000)
+        }
+        .box7 {
+            filter: contrast(1.5)
+        }
+    </style>
+</head>
+<body>
+    <img src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box1" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box2" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box3" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box4" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box5" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box6" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img class="box7" src="https://avatars0.githubusercontent.com/u/20652750?s=160&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+</body>
+</html>
