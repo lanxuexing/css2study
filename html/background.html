@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>background</title>
     <style>
+        * {
+            margin: 0;
+            border: 0;
+        }
         .box {
             float: left;
             width: 200px;
@@ -14,7 +18,7 @@
             line-height: 200px;
             font-size: 120px;
             color: white;
-            background: salmon url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605206718059&di=1ff11c05cbc28ac7b976651fa4d0bfe9&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F30%2F29%2F01300000201438121627296084016.jpg) no-repeat;
+            background: salmon url(https://avatars0.githubusercontent.com/u/20652750?s=460&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4) no-repeat;
         }
         /* 背景尺寸：留白 裁剪 */
         .box1 {
@@ -23,33 +27,58 @@
         .box2 {
             background-size: cover;
         }
-        /* 背景 参考原点[0, 0]，分别从当前区域（不含自己）向外裁剪 */
-        .box3 {
+        /* content padding border margin */
+        /* 背景 参考原点[0, 0]，它的作用就是改变 background-image 左上角的起始位置. */
+        .origin {
             padding: 30px;
-            margin: 10px;
+            margin: 20px;
             border: 20px dashed cyan;
+        }
+        .box3 {
+            /* 默认值 */
             background-origin: padding-box;
         }
         .box4 {
-            padding: 30px;
-            margin: 10px;
-            border: 20px dashed cyan;
             background-origin: border-box;
         }
         .box5 {
-            padding: 30px;
-            margin: 10px;
-            border: 20px dashed cyan;
             background-origin: content-box;
+        }
+        /* 裁剪: 它的作用是指定 background-color 和 background-image 的作用范围. */
+        .box6 {
+            background-clip: padding-box;
+        }
+        .box7 {
+            background-clip: border-box;
+        }
+        .box8 {
+            background-clip: content-box;
+        }
+        .box9 {
+            font-size: 100px;
+            font-weight: bold;
+            background-clip: text;
+            /* 目前只有Chrome支持裁剪text */
+            -webkit-background-clip: text;
+            color: transparent;
         }
     </style>
 </head>
 <body>
-    <div class="box box1"></div>
-    <div class="box box2"></div>
-    <div class="box box3"></div>
-    <div class="box box4"></div>
-    <div class="box box5"></div>
-    <div class="box"></div>
+    <img src="https://avatars0.githubusercontent.com/u/20652750?s=460&u=f551621c2f65663d6177cb3a7575c8e9eb1b0e47&v=4" alt="">
+    <img src="https://tva1.sinaimg.cn/large/0081Kckwly1gkny5riww5j30yw0rok3j.jpg" alt="">
+    <div >
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <hr/>
+        <div class="box origin box3"></div>
+        <div class="box origin box4"></div>
+        <div class="box origin box5"></div>
+        <hr/>
+        <div class="box origin box6"></div>
+        <div class="box origin box7"></div>
+        <div class="box origin box8"></div>
+        <div class="box origin box9">貂蝉</div>
+    </div>
 </body>
 </html>
