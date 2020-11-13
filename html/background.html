@@ -23,10 +23,33 @@
         .box2 {
             background-size: cover;
         }
+        /* 背景 参考原点[0, 0]，分别从当前区域（不含自己）向外裁剪 */
+        .box3 {
+            padding: 30px;
+            margin: 10px;
+            border: 20px dashed cyan;
+            background-origin: padding-box;
+        }
+        .box4 {
+            padding: 30px;
+            margin: 10px;
+            border: 20px dashed cyan;
+            background-origin: border-box;
+        }
+        .box5 {
+            padding: 30px;
+            margin: 10px;
+            border: 20px dashed cyan;
+            background-origin: content-box;
+        }
     </style>
 </head>
 <body>
     <div class="box box1"></div>
     <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+    <div class="box"></div>
 </body>
 </html>
