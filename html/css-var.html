@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-var</title>
+    <style>
+        /* 语法： --变量名
+         * 调用： var(--变量名)
+         * var() 有第二个参数，表示变量的默认值，如果该变量不存在，则使用这个默认值
+         * 第二个参数不处理内部的逗号或空格，都视作参数的一部分
+         *
+         * 一些常见的问题：
+         * 1. 字符串：--bar: 'hello';  --foo: var(--bar)' world';
+         * 2. 变量值是数值：.foo { --gap: 20; margin-top: var(--gap)px  ==> 无效写法 } 
+         *    正确的写法：使用calc()函数连接，即：margin-top: calc(var(--gap) * 1px)
+         * 3. 变量带有单位：.foo { --foo: '20px';  font-siize: var(--foo);  ==> 无效写法 }
+         *    正确的写法：.foo { --foo: 20px;  font-siize: var(--foo);  ==> 无效写法 }
+         * 4. 没有 !important 写法，变量同名采取就近原则
+         *
+         * 换肤：postcss  cssnext ==> https://www.jianshu.com/p/ce76dbf45dd9?utm_campaign
+         * 媒体查询适配：media
+         */
+        /* 根目录定义变量, 即：全局作用域 */
+        :root {
+            --background: green;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px dashed;
+            margin: 10px auto;
+            text-align: center;
+            line-height: 200px;
+        }
+        .box1 {
+            background-color: var(--background);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+</body>
+</html>
