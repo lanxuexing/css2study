@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input-checkbox</title>
+    <style>
+        /**
+        * E:checked   远配选中的复选按钮或者单选按钮表单元素
+        * E:enabled   匹配所有启用的表单元素
+        * E:disabled  匹配所有禁用的表单元素
+        */
+        div {
+            display: flex;
+            align-items: center;
+        }
+        .box1 input[type="checkbox"] ~ span {
+            opacity: 0;
+        }
+        .box1 input[type="checkbox"]:checked ~ span {
+            opacity: 1;
+        }
+        .box2 input[type="checkbox"][disabled] ~ span {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+     <div class="box1">
+         <input type="checkbox" checked name="username" id="username">
+         <label for="username">姓名</label>
+         <span>✅</span>
+     </div>
+     <div class="box2">
+        <input type="checkbox" disabled name="age" id="age">
+        <label for="age">年龄</label>
+        <span>✅</span>
+    </div>
+</body>
+</html>
