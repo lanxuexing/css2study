@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-selector</title>
+    <style>
+        /**
+        * 后代： 符号：空格
+        * 子代： 符号：>
+        * 相邻： 符号：+
+        * 全邻:  符号: ~
+        */
+        .box + p {
+            color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>天气晴，宜手记快乐！</p>
+        <p>要在不愉快的日子里，搜刮生活藏起来的温柔！</p>
+    </div>
+    <p>打工人，加油！</p>
+    <p>无处安放的大脸！</p>
+</body>
+</html>
