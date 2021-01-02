@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout-Center</title>
+  <style>
+    .parent {
+      width: 100%;
+      height: 200px;
+      background: #CCC;
+      text-align: center;
+      /* 经典解决方案：去掉子级元素行内块元素的换行符产生的间距问题 */
+      font-size: 0;
+    }
+    .child {
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+    }
+    .blue {
+      background: blue;
+    }
+    .red {
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child blue"></div>
+    <div class="child red"></div>
+  </div>
+</body>
+</html>
