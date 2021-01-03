@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .parent {
+      column-count: 4;
+      column-gap: 5px;
+      column-rule: 5px dashed green;
+    }
+    .col1,
+    .col2,
+    .col3,
+    .col4 {
+      height: 300px;
+    }
+    .col1,
+    .col6 {
+      background-color: aquamarine;
+    }
+    .col2,
+    .col7 {
+      background-color: cornflowerblue;
+    }
+    .col3,
+    .col8 {
+      background-color: blueviolet;
+    }
+    .col4,
+    .col9 {
+      background-color: brown;
+    }
+    .col5 {
+      column-span: all;
+      background-color: bisque;
+    }
+    hr {
+      margin: 40px 0;
+    }
+    .col6,
+    .col7,
+    .col8 {
+      height: 200px;
+    }
+    .article {
+      column-count: 3;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    1. columns：它是column-width和column-count属性的缩写
+    2. column-width：表示每一栏/列的最佳宽度，如果我们只设定column-width，浏览器会自动根据现有容器宽度划分栏目的个数
+    3. column-count：表示理想的分栏数目
+    4. column-rule-color：表示每个栏目中间分隔线的颜色
+    5. column-rule-style：表示每个栏目中间分隔线的类型，支持的属性值和border-style是-模一样的
+    6. column-rule-width：表示每个栏目中间分隔线的宽度大小。支持的属性值和border-width是一模一样
+    7. column-rule：它是column-rule-width，column-rule-style和column-rule-color这3个CSS属性的缩写。正如border是border-style，border-width 和border-color的缩写-样
+    8. column-span：有点类似于表格布局中的colspan这个HTML属性，表示某一个内容是否跨多栏显示
+    9. column-fill：作用是当内容分栏的时候，如何平衡每一栏填充的内容
+    10. column-gap：表示每一栏之间的那个空白间隙大小
+   -->
+   <div class="parent">
+     <div class="col1"></div>
+     <div class="col2"></div>
+     <div class="col3"></div>
+     <div class="col4"></div>
+     <div class="col1"></div>
+     <div class="col2"></div>
+     <div class="col3"></div>
+     <div class="col4"></div>
+   </div>
+   <hr>
+   <div class="article">
+     <div class="col5">大标题</div>
+     <div class="col6">The only thing left is to get the colums to line up with the padding on the container. The center column starts exactly where it needs to be, so we’ll focus on the left column.</div>
+     <div class="col7">It takes two steps to get the left column in place. First, we’ll pull it all the way across the center column with a 100% negative margin. Remember that the 100% refers to the central width of the container, which is also exactly the width of the center column.</div>
+     <div class="col8">Now the left column is overlapping the center column, sharing its left edge. The right column floats left and nestles against right edge of the center column (but still wraps), leaving us with the following</div>
+   </div>
+</body>
+</html>
