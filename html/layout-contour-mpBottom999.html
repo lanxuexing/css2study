@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .parent {
+      /* 溢出隐藏 */
+      overflow: hidden;
+    }
+    .left,
+    .right {
+      width: 300px;
+      float: left;
+      /* 伪等高技巧，正负抵消 */
+      padding-bottom: 9999px;
+      margin-bottom: -9999px;
+    }
+    .left {
+      background-color: darksalmon;
+    }
+    .right {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    等高布局：一行被划分成若干列，每一列的高度是相同的值
+      1. 利用table实现
+      2. 利用padding-bottom: 9999px; margin-bottom: -9999px;实现
+   -->
+   <div class="parent">
+     <div class="left">Highlighting Accessible Twitter Content</div>
+     <div class="right">The thing is, Twitter doesn’t make it obvious whether someone else’s content has been described, and the way it structures (if I can reasonably use that word) its content makes it annoyingly difficult to conduct element or accessibility-property inspections.  So, in keeping with the design principles that underlie both the Web and CSS, I decided to take matters into my own hands.  Which is to say, I wrote a user stylesheet.</div>
+   </div>
+</body>
+</html>
