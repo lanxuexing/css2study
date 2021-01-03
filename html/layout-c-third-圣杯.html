@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout-Third</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    /*
+      圣杯核心思想：
+        1. 三个容器在同一行
+        2. 中间留白(内间距padding)
+        3. 移动元素（left移动到左，right移动到右）技巧：利用margin负值【原位置】和定位方位【目标位置】
+        注意：方位需要配和position使用，position: relative; 不脱离文档流
+     */
+    .parent {
+      height: 300px;
+      padding-left: 200px;
+      padding-right: 200px;
+    }
+    .left,
+    .center,
+    .right {
+      text-align: center;
+      font-size: 48px;
+      line-height: 300px;
+      /* 看起来不在同一行（往下掉）的原因是，左中右的width总和超过了100% */
+      float: left;
+    }
+    .left {
+      width: 200px;
+      background-color: #c9394a;
+      margin-left: -100%;
+      position: relative;
+      left: -200px;
+    }
+    .center {
+      width: 100%;
+      background-color: #ccc;
+    }
+    .right {
+      width: 200px;
+      background-color: green;
+      margin-left: -200px;
+      position: relative;
+      right: -200px;
+      /* 这里好像可以直接使用：margin-right: -200px; */
+    }
+  </style>
+</head>
+<body>
+  <!--
+    两列定宽【定宽 自适应 定宽】，一列自适应的方法：
+      1. 圣杯布局方法（center在left和right的前边，需要优先加载）
+      2. 双飞翼布局方法
+      3. 使用Gird实现
+      4. 使用table实现
+      5. 使用flex实现
+      6. 使用Position实现
+  -->
+  <div class="parent">
+    <div class="center">中</div>
+    <div class="left">左</div>
+    <div class="right">右</div>
+  </div>
+</body>
+</html>
