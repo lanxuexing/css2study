@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      height: 100px;
+      background-color: brown;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .content {
+      background-color: lightblue;
+      position: fixed;
+      left: 200px;
+      right: 0;
+      top: 100px;
+      bottom: 100px;
+    }
+    .left {
+      width: 200px;
+      height: 100%;
+      background-color: forestgreen;
+      position: fixed;
+      top: 100px;
+      bottom: 100px;
+      left: 0;
+    }
+    .right {
+      background-color: grey;
+    }
+    footer {
+      height: 100px;
+      background-color: blueviolet;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    全屏布局：指HTML页面铺满整个浏览器窗口，并且没有滚动条，而且还可以跟着浏览器的大小变化而变化
+   -->
+   <header></header>
+   <div class="content">
+     <div class="left"></div>
+     <div class="right"></div>
+   </div>
+   <footer></footer>
+</body>
+</html>
