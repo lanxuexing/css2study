@@ -27,6 +27,30 @@
   </style>
 </head>
 <body>
+  <!-- 
+    CSS布局: div + CSS 
+      1. table：太老旧了
+      2. display：inline-block => 弊端：ie低版本浏览器不兼容 + 默认的间距
+      3. float： => 弊端：子元素浮动会导致父元素的高度塌陷（height:0;）， 需要清除浮动（PC端）
+      4. position：=> 弊端：绝对/固定定位脱离文档流 方位 => 参照物
+      5. flex： => 子元素的排列方式（移动端）
+      6. grid： => 网格布局，目前流行度还不是大面积推广
+      7. 响应式布局 => (重点)
+
+    布局方式：
+      1. 居中布局
+      2. 两列布局
+      3. 三列布局
+      4. 等分布局
+      5. 等高布局
+      6. 全屏布局
+      7. css3多列布局
+
+    实战项目：
+      PC项目布局：浮动 + 定位
+      PC+pad+手机项目布局：浮动 + 定位 + flex
+      手机端项目布局：flex
+   -->
   <div class="parent">
     <div class="child blue"></div>
     <div class="child red"></div>
