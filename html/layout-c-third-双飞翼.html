@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout-Third</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    /*
+      圣杯核心思想：https://alistapart.com/article/holygrail/
+        1. 三个容器在同一行
+        2. 中间容器两侧留白(内间距padding)
+        3. 移动元素（left移动到左，right移动到右）技巧：利用margin负值【原位置】和定位方位【目标位置】
+        注意：方位需要配和position使用，position: relative; 不脱离文档流
+        简书：https://www.jianshu.com/p/81ef7e7094e8
+
+        双飞翼：优化了圣杯的定位，由淘宝团队提出
+          1. 让三个容器在一行显示，float: left;
+          2. 让中间的容器两侧留白（目的是给左和右容器留出空间）使用外间距：margin
+          3. 移动左右容器到目标位置上（利用margin的负值技巧）
+
+        相同点：
+          1. 结构和顺序都是一样的
+
+        区别：
+          1. 双飞翼的center容器会在外部多套嵌套一层父容器div
+          2. 左右留白的方法不一样，圣杯使用的是padding-left/right，双飞翼使用的是margin-left/right
+          3. 移动位置的方法不一样，圣杯需要两步，先使用margin负值技巧然后使用定位移动，双飞翼直接margin负值一步就完成了
+     */
+    .parent {
+      height: 300px;
+    }
+    .left,
+    .center,
+    .right {
+      text-align: center;
+      font-size: 48px;
+      line-height: 300px;
+      /* 看起来不在同一行（往下掉）的原因是，左中右的width总和超过了100% */
+      float: left;
+    }
+    .left {
+      width: 200px;
+      background-color: #c9394a;
+      margin-left: -100%;
+    }
+    .center {
+      width: 100%;
+    }
+    .inner {
+      background-color: #ccc;
+      /* 多套一个div的原因是为了使用外间距margin */
+      margin-left: 200px;
+      margin-right: 200px;
+    }
+    .right {
+      width: 200px;
+      background-color: green;
+      margin-left: -200px;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    两列定宽【定宽 自适应 定宽】，一列自适应的方法：
+      1. 圣杯布局方法（center在left和right的前边，需要优先加载）
+      2. 双飞翼布局方法（优化了圣杯布局，核心是移除了定位，最先由淘宝团队提出）
+      3. 使用Gird实现
+      4. 使用table实现
+      5. 使用flex实现
+      6. 使用Position实现
+  -->
+  <div class="parent">
+    <div class="center">
+      <div class="inner">中</div>
+    </div>
+    <div class="left">左</div>
+    <div class="right">右</div>
+  </div>
+</body>
+</html>
