@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .parent {
+      display: table;
+      width: 100%;
+    }
+    .col1,
+    .col2,
+    .col3,
+    .col4 {
+      height: 200px;
+      display: table-cell;
+    }
+    .col1 {
+      background-color: darksalmon;
+    }
+    .col2 {
+      background-color: blueviolet;
+    }
+    .col3 {
+      background-color: cyan;
+    }
+    .col4 {
+      background-color: brown;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    等分布局：指一行被分为若干列，每一列的宽度是相同的值
+      1. 利用float实现
+      2. 利用table实现
+      3. 利用flex实现
+   -->
+   <div class="parent">
+     <div class="col1"></div>
+     <div class="col2"></div>
+     <div class="col3"></div>
+     <div class="col4"></div>
+   </div>
+</body>
+</html>

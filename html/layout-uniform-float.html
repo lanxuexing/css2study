@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    /* 这种方法是实战中最常使用的 */
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+      /* 安全属性 */
+      overflow: hidden;
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+    .parent {
+      border: 10px solid #CCC;
+      padding: 30px;
+      /* 利用margin负值技巧，隐藏左边边框 */
+      margin-left: -10px;
+    }
+    .col1,
+    .col2,
+    .col3,
+    .col4 {
+      height: 200px;
+      /*
+        添加边框或者外间距会导致子元素塌陷，需要手动改变盒子模型且使用border属性
+        box-sizing: border-box; 计算宽度会把padding + border计算进去
+      */
+      border-left: 10px solid #FFF;
+      box-sizing: border-box;
+      /*
+        子元素浮动之后，父容器的高度会变为0（塌陷），浮动元素不会参与计算，需要清除浮动
+          1. 手动给父容器加定宽
+          2. overflow: hidden; BFC元素的特点是会把浮动元素计算进去（溢出隐藏，若是有下拉框，则次方案不可用）
+          3. 利用css提供的属性，clear: both; 即：在浮动元素的最后添加一个空的块级元素: <div style="clear: both;"></div>
+          4. 利用伪元素选择器，使用重置样式表reset.min.css：https://meyerweb.com/eric/tools/css/reset/index.html
+      */
+      float: left;
+      width: 25%;
+    }
+    .col1 {
+      background-color: darksalmon;
+    }
+    .col2 {
+      background-color: blueviolet;
+    }
+    .col3 {
+      background-color: cyan;
+    }
+    .col4 {
+      background-color: brown;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    等分布局：指一行被分为若干列，每一列的宽度是相同的值
+      1. 利用float实现
+      2. 利用table实现
+      3. 利用flex实现
+   -->
+   <div class="parent clearfix">
+     <div class="col1"></div>
+     <div class="col2"></div>
+     <div class="col3"></div>
+     <div class="col4"></div>
+   </div>
+</body>
+</html>
