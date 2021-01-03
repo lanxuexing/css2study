@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout-Third</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .parent {
+      display: grid;
+      grid-template-columns: 200px 200px auto;
+    }
+    .left {
+      width: 200px;
+      height: 300px;
+      background-color: #c9394a;
+    }
+    .center {
+      width: 200px;
+      height: 300px;
+      background-color: green;
+    }
+    .right {
+      height: 400px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    两列定宽【定宽 定宽 自适应】，一列自适应的方法：
+      1. 利用float + margin实现
+      2. 使用float + overflow实现
+      3. 使用table + table-cell实现
+      4. 使用flex属性实现
+      5. 使用Grid属性实现
+  -->
+  <div class="parent">
+    <div class="left"></div>
+    <div class="center"></div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>
